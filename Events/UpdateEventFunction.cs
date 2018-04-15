@@ -13,7 +13,7 @@ namespace Events
     public static class UpdateEventFunction
     {
         [FunctionName("UpdateEvent")]
-        public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Function, "put", Route = null)]HttpRequestMessage req, TraceWriter log)
+        public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Admin, "put", Route = null)]HttpRequestMessage req, TraceWriter log)
         {
             try
             {

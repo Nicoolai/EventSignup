@@ -12,7 +12,7 @@ namespace Events
     public static class CancelSignupFunction
     {
         [FunctionName("CancelSignup")]
-        public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Function, "delete", Route = null)]HttpRequestMessage req, TraceWriter log)
+        public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "delete", Route = null)]HttpRequestMessage req, TraceWriter log)
         {
             try
             {
