@@ -1,6 +1,7 @@
 ﻿namespace Events.Models
 {
     using System;
+    using System.Collections.Generic;
 
     public interface IEvent
     {
@@ -10,6 +11,7 @@
         string Description { get; set; }
         DateTime ScheduledDate { get; set; }
         IAddress Location { get; set; }
+        List<IParticipant> Participants { get; }
         bool AddParticipant(IParticipant participant);
         bool RemoveParticipant(string email);
         bool IsParticipantSignedUp(string email);

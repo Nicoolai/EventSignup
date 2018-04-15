@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Events.Models;
-
-namespace Events.Repositories
+﻿namespace Events.Repositories
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using Events.Models;
+
     class ParticipantsRepository : IParticipantsRepository
     {
         public List<IEvent> GetEvents(IParticipant participant)

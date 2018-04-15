@@ -7,6 +7,6 @@
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
 
-        public bool isValid() => (!string.IsNullOrEmpty(Name) && Address != null && !string.IsNullOrEmpty(PhoneNumber) && !string.IsNullOrEmpty(Email));
+        public bool IsValid() => (!string.IsNullOrEmpty(this.Name) && this.Address != null && !string.IsNullOrEmpty(this.PhoneNumber) && !string.IsNullOrEmpty(this.Email));
     }
 }

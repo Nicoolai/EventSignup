@@ -1,15 +1,16 @@
-﻿using Events.Models;
-using System;
-using System.Collections.Generic;
-
-namespace Events.Repositories
+﻿namespace Events.Repositories
 {
+    using System;
+    using System.Collections.Generic;
+    using Events.Models;
+
     /// <summary>
     /// Repository for event focused actions.
     /// </summary>
     interface IEventsRepository
     {
         IEvent GetEvent(Guid id);
+
         /// <summary>
         /// Get events. Allows you to get all events, by passing null values, or filter based on key parameters.
         /// </summary>

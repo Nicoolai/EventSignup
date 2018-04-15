@@ -6,6 +6,6 @@
         IAddress Address { get; set; }
         string PhoneNumber { get; set; }
         string Email { get; set; }
-        bool isValid();
+        bool IsValid();
     }
 }

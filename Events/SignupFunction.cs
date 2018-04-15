@@ -48,7 +48,7 @@
                     }
                 };
 
-                if (!participant.isValid())
+                if (!participant.IsValid())
                 {
                     return req.CreateErrorResponse(HttpStatusCode.BadRequest, "Invalid signup information.");
                 }

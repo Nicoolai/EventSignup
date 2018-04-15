@@ -21,6 +21,14 @@
         public DateTime ScheduledDate { get; set; }
         public IAddress Location { get; set; }
 
+        public List<IParticipant> Participants
+        {
+            get
+            {
+                return this.participants;
+            }
+        }
+
         public bool AddParticipant(IParticipant participant)
         {
             // Might be a good idea to actually check if participant is already signed up, in here.

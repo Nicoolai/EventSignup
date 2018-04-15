@@ -15,6 +15,7 @@
             {
                 eventsRepository = new EventsRepository();
             }
+
             return eventsRepository;
         }
 
@@ -24,6 +25,7 @@
             {
                 participantsRepository = new ParticipantsRepository();
             }
+
             return participantsRepository;
         }
     }
