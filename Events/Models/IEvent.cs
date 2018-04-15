@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace Events.Models
+﻿namespace Events.Models
 {
+    using System;
+
     interface IEvent
     {
         Guid Id { get; }
@@ -10,5 +10,8 @@ namespace Events.Models
         string Description { get; set; }
         DateTime ScheduledDate { get; set; }
         IAddress Location { get; set; }
+        bool AddParticipant(IParticipant participant);
+        bool RemoveParticipant(string email);
+        bool IsParticipantSignedUp(string email);
     }
 }
