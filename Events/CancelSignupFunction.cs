@@ -9,7 +9,7 @@ namespace Events
     using Microsoft.Azure.WebJobs.Extensions.Http;
     using Microsoft.Azure.WebJobs.Host;
 
-    public static class CancelSignup
+    public static class CancelSignupFunction
     {
         [FunctionName("CancelSignup")]
         public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Function, "delete", Route = null)]HttpRequestMessage req, TraceWriter log)

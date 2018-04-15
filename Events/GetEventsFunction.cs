@@ -11,7 +11,7 @@
     using Microsoft.Azure.WebJobs.Extensions.Http;
     using Microsoft.Azure.WebJobs.Host;
 
-    public static class GetEvents
+    public static class GetEventsFunction
     {
         [FunctionName("Events")]
         public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequestMessage req, TraceWriter log)
