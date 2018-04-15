@@ -42,5 +42,15 @@
         {
             return this.participants.Any(p => p.Email.ToUpper() == email.ToUpper());
         }
+
+        public void Update(IEvent updatedEvent)
+        {
+            // Could potentially do some null-value checks here.
+            this.Category = updatedEvent.Category;
+            this.Name = updatedEvent.Name;
+            this.Description = updatedEvent.Description;
+            this.ScheduledDate = updatedEvent.ScheduledDate;
+            this.Location = updatedEvent.Location;
+        }
     }
 }

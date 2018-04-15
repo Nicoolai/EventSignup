@@ -16,10 +16,11 @@
         [FunctionName("Events")]
         public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", Route = null)]HttpRequestMessage req, TraceWriter log)
         {
-            log.Info("C# HTTP trigger function processed a request.");
-
+            
             try
             {
+                log.Info("C# HTTP trigger function processed a request.");
+
                 IEventsRepository eventsRepository = RepositoryFactory.GetEventsRepository();
 
                 // Get request body

@@ -13,5 +13,6 @@
         bool AddParticipant(IParticipant participant);
         bool RemoveParticipant(string email);
         bool IsParticipantSignedUp(string email);
+        void Update(IEvent updatedEvent);
     }
 }
