@@ -2,7 +2,7 @@
 {
     using System;
 
-    interface IEvent
+    public interface IEvent
     {
         Guid Id { get; }
         string Category { get; set; }

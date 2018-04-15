@@ -37,7 +37,7 @@ namespace Events
                 }
 
                 // Proceed to remove participant from event
-                if (eventsRepository.CancelSignup(@event, (string)data?.email))
+                if (@event.RemoveParticipant((string)data?.email))
                 {
                     // Successfully cancelled participation
                     return req.CreateResponse(HttpStatusCode.Accepted);

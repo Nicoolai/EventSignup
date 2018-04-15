@@ -19,10 +19,6 @@ namespace Events.Repositories
         /// <param name="toDate">The end date to use for date filtering.</param>
         /// <returns></returns>
         List<IEvent> GetEvents(string category = null, IAddress location = null, DateTime? fromDate = null, DateTime? toDate = null);
-        bool Signup(IEvent @event, IParticipant participant);
-        bool CancelSignup(IEvent @event, string email);
         Guid CreateEvent(IEvent @event);
-        bool UpdateEvent(IEvent @event);
-        List<IParticipant> GetParticipants(IEvent @event);
     }
 }

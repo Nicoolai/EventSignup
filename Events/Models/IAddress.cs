@@ -1,6 +1,6 @@
 ﻿namespace Events.Models
 {
-    interface IAddress
+    public interface IAddress
     {
         string Country { get; set; }
         string State { get; set; }

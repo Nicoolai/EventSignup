@@ -1,6 +1,6 @@
 ﻿namespace Events.Models
 {
-    interface IParticipant
+    public interface IParticipant
     {
         string Name { get; set; }
         IAddress Address { get; set; }

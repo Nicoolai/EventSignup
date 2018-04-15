@@ -23,19 +23,16 @@
 
         public bool AddParticipant(IParticipant participant)
         {
+            // Might be a good idea to actually check if participant is already signed up, in here.
             this.participants.Add(participant);
             return this.participants.Any(p => p == participant);
         }
 
         public bool RemoveParticipant(string email)
         {
+            // Might be a good idea to actually check if participant is actually signed up, in here.
             this.participants.Remove(this.participants.Single(p => p.Email.ToUpper() == email.ToUpper()));
             return this.participants.Any(p => p.Email.ToUpper() != email.ToUpper());
-        }
-
-        public bool IsParticipantSignedUp(IParticipant participant)
-        {
-            return this.participants.Any(p => p == participant);
         }
 
         public bool IsParticipantSignedUp(string email)

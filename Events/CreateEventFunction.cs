@@ -10,10 +10,10 @@ namespace Events
     using Microsoft.Azure.WebJobs.Extensions.Http;
     using Microsoft.Azure.WebJobs.Host;
 
-    public static class UpdateEventFunction
+    public static class CreateEventFunction
     {
-        [FunctionName("UpdateEvent")]
-        public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Admin, "put", Route = null)]HttpRequestMessage req, TraceWriter log)
+        [FunctionName("CreateEvent")]
+        public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Admin, "post", Route = null)]HttpRequestMessage req, TraceWriter log)
         {
             try
             {
@@ -21,24 +21,16 @@ namespace Events
 
                 // Get request body
                 dynamic data = await req.Content.ReadAsAsync<object>();
-                IEvent updatedEvent = Helpers.GetEvent(data);
+                IEvent @event = Helpers.GetEvent(data);
 
                 var eventsRepository = RepositoryFactory.GetEventsRepository();
+                var guid = eventsRepository.CreateEvent(@event);
 
-                // Get existing event, if it exists
-                var existingEvent = eventsRepository.GetEvent(updatedEvent.Id);
-                if (existingEvent == null)
-                {
-                    return req.CreateErrorResponse(HttpStatusCode.NotFound, "Event not found.");
-                }
-
-                // Copy values over 
-                existingEvent.Update(updatedEvent);
-
-                return req.CreateResponse(HttpStatusCode.OK, existingEvent);
+                return req.CreateResponse(HttpStatusCode.Created, guid);
             }
             catch (Exception ex)
             {
+                log.Error("Error", ex, "GetEvents.cs");
                 return req.CreateErrorResponse(HttpStatusCode.InternalServerError, ex);
             }
         }

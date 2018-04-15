@@ -59,7 +59,7 @@
                     return req.CreateErrorResponse(HttpStatusCode.BadRequest, "You are already signed up to this event.");
                 }
 
-                eventsRepository.Signup(eventToSignup, participant);
+                eventToSignup.AddParticipant(participant);
 
                 return req.CreateResponse(HttpStatusCode.Accepted);
             }

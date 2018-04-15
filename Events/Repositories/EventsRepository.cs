@@ -25,14 +25,10 @@
             };
         }
 
-        public bool CancelSignup(IEvent @event, string email)
-        {
-            throw new NotImplementedException();
-        }
-
         public Guid CreateEvent(IEvent @event)
         {
-            throw new NotImplementedException();
+            this.events.Add(@event);
+            return @event.Id;
         }
 
         public IEvent GetEvent(Guid id)
@@ -69,24 +65,9 @@
             return filteredEvents;
         }
 
-        public IList<IParticipant> GetParticipants(IEvent @event)
-        {
-            throw new NotImplementedException();
-        }
-
         public bool Signup(IEvent @event, IParticipant participant)
         {
             return @event.AddParticipant(participant);
-        }
-
-        public bool UpdateEvent(IEvent @event)
-        {
-            throw new NotImplementedException();
-        }
-
-        List<IParticipant> IEventsRepository.GetParticipants(IEvent @event)
-        {
-            throw new NotImplementedException();
         }
     }
 }
