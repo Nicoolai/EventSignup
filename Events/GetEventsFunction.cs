@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Net;
     using System.Net.Http;
     using System.Threading.Tasks;
@@ -20,7 +21,21 @@
             {
                 log.Info("C# HTTP trigger function processed a request.");
 
+                // parse query parameter
+                string eventId = req.GetQueryNameValuePairs()
+                    .FirstOrDefault(q => string.Compare(q.Key, "eventId", true) == 0)
+                    .Value;
+
                 IEventsRepository eventsRepository = RepositoryFactory.GetEventsRepository();
+
+                if (!string.IsNullOrEmpty(eventId))
+                {
+                    // Get of a specific event
+                    var guid = Guid.Parse(eventId);
+                    var @event = eventsRepository.GetEvent(guid);
+                    return @event != null ? req.CreateResponse(HttpStatusCode.Found, @event) : req.CreateErrorResponse(HttpStatusCode.NotFound, "Event not found");
+                }
+                
 
                 // Get request body
                 dynamic data = await req.Content.ReadAsAsync<object>();
