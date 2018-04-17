@@ -21,14 +21,6 @@
         public DateTime ScheduledDate { get; set; }
         public IAddress Location { get; set; }
 
-        public List<IParticipant> Participants
-        {
-            get
-            {
-                return this.participants;
-            }
-        }
-
         public bool AddParticipant(IParticipant participant)
         {
             // Might be a good idea to actually check if participant is already signed up, in here.
@@ -38,7 +30,7 @@
 
         public bool RemoveParticipant(string email)
         {
-            // Might be a good idea to actually check if participant is actually signed up, in here.
+            // Might be a good idea to check if participant is actually signed up, in here.
             this.participants.Remove(this.participants.Single(p => p.Email.ToUpper() == email.ToUpper()));
             return this.participants.Any(p => p.Email.ToUpper() != email.ToUpper());
         }
@@ -56,6 +48,11 @@
             this.Description = updatedEvent.Description;
             this.ScheduledDate = updatedEvent.ScheduledDate;
             this.Location = updatedEvent.Location;
+        }
+
+        public List<IParticipant> GetParticipants()
+        {
+            return this.participants;
         }
     }
 }

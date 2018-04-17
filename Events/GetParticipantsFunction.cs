@@ -37,7 +37,8 @@ namespace Events
                 return req.CreateErrorResponse(HttpStatusCode.NotFound, "Event not found.");
             }
 
-            return req.CreateResponse(HttpStatusCode.OK, @event.Participants);
+            var participants = @event.GetParticipants();
+            return req.CreateResponse(HttpStatusCode.OK, participants);
         }
     }
 }
